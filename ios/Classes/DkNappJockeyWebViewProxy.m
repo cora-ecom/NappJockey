@@ -70,6 +70,24 @@
 	return NUMBOOL(NO);
 }
 
+-(void)setCatchAllHTTPRequestsBack:(id)args
+{
+    ENSURE_SINGLE_ARG(args, NSObject);
+    BOOL value = [TiUtils boolValue:args];
+    TiThreadPerformOnMainThread(^{[(DkNappJockeyWebView*)[self view] setCatchAllHTTPRequests: value];}, YES);
+}
+
+-(id)getCatchAllHTTPRequestsBack
+{
+    if ([self viewAttached])
+    {
+        __block BOOL result;
+        TiThreadPerformOnMainThread(^{result = [(DkNappJockeyWebView*)[self view] catchAllHTTPRequests];}, YES);
+        return NUMBOOL(result);
+    }
+    return NUMBOOL(NO);
+}
+
 
 
 @end

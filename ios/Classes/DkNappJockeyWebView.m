@@ -10,7 +10,7 @@
 #import "DkNappJockeyWebView.h"
 
 @implementation DkNappJockeyWebView
-@synthesize reloadData, reloadDataProperties, url;
+@synthesize reloadData, reloadDataProperties, url, catchAllHTTPRequests;
 
 -(void)dealloc
 {
@@ -211,6 +211,7 @@
         if ([scheme hasPrefix:@"http"]) {
             //UIWebViewNavigationTypeOther means we are either in a META redirect
             //or it is a js request from within the page
+            if (catchAllHTTPRequests) return NO;
             valid = valid && (navigationType != UIWebViewNavigationTypeOther);
         }
         if (valid) {

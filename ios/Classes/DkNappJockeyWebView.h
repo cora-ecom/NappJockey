@@ -17,6 +17,7 @@
     NSString *lastValidLoad;
     
     BOOL ignoreNextRequest;
+    BOOL catchAllHTTPRequests;
     id reloadData;
     id reloadDataProperties;
     SEL reloadMethod;
@@ -27,6 +28,7 @@
 @property(nonatomic,readonly) id url;
 @property(nonatomic,readwrite,retain) id reloadData;
 @property(nonatomic,readwrite,retain) id reloadDataProperties;
+@property(nonatomic,assign) BOOL catchAllHTTPRequests;
 
 -(void)render;
 -(void)sendJockeyData:(id)args;
