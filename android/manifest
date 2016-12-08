@@ -2,8 +2,9 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.2.0
-apiversion: 2
+version: 2.0.0
+apiversion: 3
+architectures: armeabi-v7a x86
 description: NappJockey
 author: Mads Moller
 license: MIT
@@ -15,5 +16,4 @@ name: nappjockey
 moduleid: dk.napp.jockey
 guid: 3df52793-2ee4-4ee5-b6f8-e3e8e94dfbce
 platform: android
-minsdk: 4.0.0.GA
-architectures: armeabi;armeabi-v7a;x86
+minsdk: 6.0.0.GA
